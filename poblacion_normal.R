@@ -56,6 +56,7 @@ N_m <- nrow(data_mujer)
 # Estimar el tamaño de muestra para una población infinita
 
 n <- 160 # tamaño total de la muestra
+N <- count(data_rural_sin)
 
 n_h <- round(n*N_h/N, 0) # tamaño de muestra de estrato masculino
 n_m <- round(n*N_m/N, 0) # tamaño de muestra de estrao femenino
@@ -73,6 +74,14 @@ shapiro.test(muestra_hombre$M500_EM_2S_2023_MA)
 
 muestra_mujer <- muestra %>% filter(sexo == "Mujer") %>% select(2)
 shapiro.test(muestra_mujer$M500_EM_2S_2023_MA)
+
+Aprobadoshombres <- muestra_hombre %>% filter (M500_EM_2S_2023_MA >= 596)
+View(Aprobadoshombres)
+count(Aprobadoshombres)
+
+Aprobadasmujeres <- muestra_mujer %>% filter (M500_EM_2S_2023_MA >= 596)
+View(Aprobadasmujeres)
+count(Aprobadasmujeres)
 
 
 
